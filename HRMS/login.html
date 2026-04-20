@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Service &amp; Multi-Fixing - Login</title>
+    <link rel="stylesheet" href="stylelogin.css?v=1738743">
+    <style>
+        .field-error {
+            display: none; color: #e53e3e; font-size: 12px; margin-top: 5px;
+            padding: 5px 10px; background: rgba(229,62,62,0.07);
+            border-radius: 8px; border-left: 3px solid #e53e3e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="welcome.html" style="text-decoration:none; color:inherit;">
+            <div id="logo">
+                <img src="media/logo.png" alt="Multi-Service &amp; Multi-Fixing Logo">
+                <span>Multi-Service &amp; Multi-Fixing</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="login-wrapper">
+
+        <div class="login-left">
+            <img src="media/home.png" alt="Repair illustration">
+        </div>
+
+        <div class="login-right">
+
+            <h1 class="login-title">Welcome Back</h1>
+
+            <form class="login-form" id="loginForm" action="login_process.php" method="post" novalidate>
+
+                <div class="login-role">
+                    <span style="display:none;">Login as</span>
+                    <label><input type="radio" name="loginRole" value="customer" checked> <span>Customer</span></label>
+                    <label><input type="radio" name="loginRole" value="provider"> <span>Provider</span></label>
+                    <label><input type="radio" name="loginRole" value="admin"> <span>Admin</span></label>
+                </div>
+
+                <div class="form-group">
+                    <label>Email<span class="required">*</span></label>
+                    <input type="email" id="loginEmail" placeholder="Enter your email address" name="email" autocomplete="email">
+                    <span class="field-error" id="loginEmailError">&#9888; Please enter a valid email address (e.g. user@example.com).</span>
+                </div>
+
+                <div class="form-group">
+                    <label>Password<span class="required">*</span></label>
+                    <div class="input-with-icon">
+                        <input type="password" id="loginPassword" placeholder="Enter your password" name="password">
+                    </div>
+                    <span class="field-error" id="loginPasswordError">&#9888; Password is required.</span>
+                </div>
+
+                <div class="remember-row">
+                    <label class="remember">
+                        <input type="checkbox">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot">Forgot Password?</a>
+                </div>
+
+                <input type="submit" class="primary-btn" value="Login">
+            </form>
+
+            <p class="bottom-text">
+                Don't have an account? <a href="signup.html" class="link-main">Sign Up</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+<script src="theme.js"></script>
+<script>
+if (window.location.protocol === 'file:') {
+    window.location.replace('http://localhost/HRMS/login.html');
+}
+
+(function () {
+    var emailIn  = document.getElementById('loginEmail');
+    var passIn   = document.getElementById('loginPassword');
+    var emailErr = document.getElementById('loginEmailError');
+    var passErr  = document.getElementById('loginPasswordError');
+    var emailRx  = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    function showE(el, inp) { el.style.display = 'block'; if (inp) inp.style.borderColor = '#e53e3e'; }
+    function hideE(el, inp) { el.style.display = 'none';  if (inp) inp.style.borderColor = ''; }
+
+    /* Live email feedback */
+    emailIn.addEventListener('input', function () {
+        if (this.value && !emailRx.test(this.value)) { showE(emailErr, this); }
+        else { hideE(emailErr, this); }
+    });
+
+    /* Live password feedback */
+    passIn.addEventListener('input', function () {
+        if (!this.value.trim()) { showE(passErr, this); }
+        else { hideE(passErr, this); }
+    });
+
+    /* Block submit if any field invalid */
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+        var ok = true;
+        var first = null;
+
+        var ev = emailIn.value.trim();
+        if (!ev || !emailRx.test(ev)) { showE(emailErr, emailIn); ok = false; first = first || emailIn; }
+        else { hideE(emailErr, emailIn); }
+
+        if (!passIn.value.trim()) { showE(passErr, passIn); ok = false; first = first || passIn; }
+        else { hideE(passErr, passIn); }
+
+        if (!ok) {
+            e.preventDefault();
+            if (first) first.focus();
+        }
+    });
+})();
+</script>
+</html>

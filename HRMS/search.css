@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f6f9fc;
+}
+
+/* MAIN NAVBAR */
+.main-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 40px;
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* LEFT LOGO */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 130px;        /* ekto fixed width, jate center thik thake */
+}
+
+.nav-left img {
+    height: 70px;
+    width: auto;
+}
+
+.nav-left span {
+    font-size: 32px;
+    font-weight: 700;
+    color: #102258;
+}
+
+/* CENTER SEARCH WRAPPER */
+.nav-center {
+    flex: 1;                 /* majher part boro hobe */
+    display: flex;
+    justify-content: center; /* real center */
+}
+
+/* SEARCH FORM */
+.search-form {
+    display: flex;
+    width: 100%;
+    max-width: 480px;        /* search bar er max width */
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid #ccd4ff;
+    background: #f7f8ff;
+}
+
+.search-form input {
+    flex: 1;
+    padding: 18px 16px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background: transparent;
+}
+.search-form input::placeholder {
+    font-size: 18px;         /* joto boro chai toto barao */
+    color: #777;             /* iccha hole color o change korte paro */
+}
+
+.search-form button {
+    padding: 8px 18px;
+    border: none;
+    background: #3e5bfd;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ---------- OUR SERVICES SECTION ---------- */
+
+#our-services {
+    max-width: 1600px;
+    margin: 30px auto;
+    text-align: center;
+    margin-top: 70px;
+}
+
+
+
+/* cards container */
+#service-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* single card */
+.card {
+    width: 450px;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 22px 22px 22px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e3e7f3;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* image on top */
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 18px;
+}
+
+/* service name */
+.card h3 {
+    font-size: 22px;
+    color: #15224f;
+    margin-bottom: 8px;
+}
+
+/* rating */
+.card p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+/* bottom row: price + button */
+.card-bottom {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #15224f;
+}
+
+/* book button */
+.btn-small {
+    padding: 8px 22px;
+    border-radius: 999px;
+    border: none;
+    background: #142356;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* explore more button niche jodi rakho */
+.explore-wrapper {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.explore-btn {
+    padding: 10px 40px;
+    border-radius: 999px;
+    border: none;
+    background: #142356;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}

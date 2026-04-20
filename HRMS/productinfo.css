@@ -1,0 +1,75 @@
+@import url('app_theme.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
+:root { --navy: #1e3a6e; --orange: #f97316; --navy-light: #2d4f8e; }
+
+body {
+    background: linear-gradient(135deg, #dbeafe 0%, #e0efff 35%, #fff7ed 70%, #ffe4c4 100%);
+    background-size: 300% 300%; animation: flowBg 20s ease infinite alternate;
+    color: #1d1d1f; min-height: 100vh;
+}
+@keyframes flowBg { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+
+.main-header {
+    display: flex; justify-content: space-between; align-items: center; padding: 16px 40px;
+    background: rgba(255,255,255,0.4); backdrop-filter: saturate(180%) blur(30px); border-bottom: 1px solid rgba(255,255,255,0.6);
+}
+.nav-left { display: flex; align-items: center; gap: 12px; }
+.nav-left img { height: 56px; width: auto; filter: drop-shadow(0 2px 6px rgba(30,58,110,0.3)); }
+.nav-left span { font-size: 20px; font-weight: 700; color: var(--navy); }
+.nav-title { font-size: 18px; font-weight: 600; color: var(--navy); }
+
+.page-content { max-width: 1000px; margin: 40px auto 80px; padding: 0 24px; }
+
+/* Service Info two-column */
+.service-section {
+    display: flex; gap: 40px; flex-wrap: wrap; align-items: flex-start;
+    background: rgba(255,255,255,0.6); backdrop-filter: saturate(180%) blur(40px);
+    border: 1px solid rgba(255,255,255,0.9); border-radius: 32px; padding: 32px;
+    box-shadow: 0 10px 40px rgba(30,58,110,0.08); margin-bottom: 32px;
+}
+.service-image { flex: 1; min-width: 260px; }
+.service-image img { width: 100%; border-radius: 24px; object-fit: cover; box-shadow: 0 8px 24px rgba(30,58,110,0.1); }
+.service-info { flex: 1; min-width: 260px; }
+.service-info h1 { color: var(--navy); font-size: 30px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; }
+.service-desc { color: #555; font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+.service-meta { list-style: none; line-height: 2.5; color: #555; font-size: 15px; }
+.service-meta strong { color: var(--navy); }
+
+#provider-info {
+    display: flex; gap: 24px; align-items: center; flex-wrap: wrap;
+    background: rgba(255,255,255,0.6); backdrop-filter: saturate(180%) blur(40px);
+    border: 1px solid rgba(255,255,255,0.9); border-radius: 24px; padding: 24px;
+    box-shadow: 0 8px 30px rgba(30,58,110,0.06); margin-bottom: 32px;
+}
+.img-info img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2.5px solid var(--navy); }
+.provider-details h3 { color: var(--navy); font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.provider-details ul { list-style: none; color: #555; line-height: 2; font-size: 14px; }
+.provider-details strong { color: var(--navy); }
+
+.bottom-two-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex-wrap: wrap; }
+@media (max-width: 700px) { .bottom-two-cards { grid-template-columns: 1fr; } }
+
+.card {
+    background: rgba(255,255,255,0.6); backdrop-filter: saturate(180%) blur(40px);
+    border: 1px solid rgba(255,255,255,0.9); border-radius: 28px; padding: 28px;
+    box-shadow: 0 8px 30px rgba(30,58,110,0.07);
+}
+.card h3 { color: var(--navy); font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+
+.primary-btn {
+    padding: 12px 24px; background: var(--navy); color: #fff; border: none;
+    border-radius: 16px; font-size: 15px; font-weight: 600; cursor: pointer; transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(30,58,110,0.2); text-decoration: none; display: inline-block;
+}
+.primary-btn:hover { background: var(--orange); }
+
+.review-item { border-bottom: 1px solid rgba(30,58,110,0.06); padding: 16px 0; }
+.review-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.review-name { font-weight: 600; color: var(--navy); }
+.review-rating { color: var(--orange); font-weight: 700; }
+.review-text { color: #555; font-size: 14px; line-height: 1.6; margin-bottom: 4px; }
+.review-date { font-size: 12px; color: #999; }
+.reviews-footer { color: #666; font-size: 13px; margin-top: 12px; }

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-Service &amp; Multi-Fixing - Sign Up</title>
+    <link rel="stylesheet" href="signup.css?v=2025041501">
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="welcome.html" style="text-decoration:none; color:inherit;">
+        <div id="logo">
+            <img src="media/logo.png" alt="Multi-Service &amp; Multi-Fixing Logo">
+            <span>Multi-Service &amp; Multi-Fixing</span>
+        </div>
+        </a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-left">
+            <img src="media/repair.png" alt="Sign Up Illustration">
+        </div>
+
+        <div class="hero-right">
+
+            <h1 class="title">Create Your Account</h1>
+
+            <form id="signupForm" class="signup-form" action="customer_signup.php" method="post" enctype="multipart/form-data" novalidate>
+
+    <div class="signup-role">
+        <span>Sign up as</span>
+        <label><input type="radio" name="signupRole" value="customer" checked> Customer</label>
+        <label><input type="radio" name="signupRole" value="provider"> Provider</label>
+    </div>
+
+    <!-- Full Name -->
+    <div class="form-group">
+        <label for="signupName">Full Name<span class="required">*</span></label>
+        <input type="text" id="signupName" name="full_name" placeholder="Enter your full name" autocomplete="name">
+        <span class="field-error" id="nameError">&#9888; Name is required and must contain letters only (no numbers).</span>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        <label for="signupEmail">Email Address<span class="required">*</span></label>
+        <input type="email" id="signupEmail" name="email" placeholder="Enter your email address" autocomplete="email">
+        <span class="field-error" id="emailError">&#9888; Please enter a valid email address (e.g. user@example.com).</span>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-group">
+        <label for="signupPhone">Phone Number<span class="required">*</span></label>
+        <input type="tel" id="signupPhone" name="phone" placeholder="Enter your phone number" autocomplete="tel">
+        <span class="field-error" id="phoneError">&#9888; Phone number is required and must contain digits only.</span>
+    </div>
+
+    <!-- Location -->
+    <div class="form-group">
+        <label for="signupLocation">Location<span class="required">*</span></label>
+        <input type="text" id="signupLocation" name="location" placeholder="Enter your Location">
+        <span class="field-error" id="locationError">&#9888; Location is required.</span>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+        <label for="signupPassword">Password<span class="required">*</span></label>
+        <input type="password" id="signupPassword" name="password" placeholder="Create a password (min 6 chars)">
+        <span class="field-error" id="passwordError">&#9888; Password must be at least 6 characters.</span>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-group">
+        <label for="signupConfirm">Confirm Password<span class="required">*</span></label>
+        <input type="password" id="signupConfirm" name="confirm_password" placeholder="Re-enter your password">
+        <span class="field-error" id="confirmError">&#9888; Passwords do not match.</span>
+    </div>
+
+    <!-- NID Photo -->
+    <div class="form-group">
+        <label>National ID (NID) Photo<span class="required">*</span></label>
+        <div class="nid-upload-box" id="nidUploadBox">
+            <input type="file" id="nidFile" name="nid_photo" accept="image/jpeg,image/png,image/webp" style="display:none;">
+            <div id="nidPlaceholder" onclick="document.getElementById('nidFile').click()" style="cursor:pointer; text-align:center; padding:18px 10px;">
+                <div style="font-size:32px;">&#128247;</div>
+                <div style="font-weight:600; color:#1e3a6e; margin-top:6px;">Click to upload your NID photo</div>
+                <div style="font-size:12px; color:#888; margin-top:4px;">JPG, PNG or WEBP &bull; Max 5 MB</div>
+            </div>
+            <img id="nidPreview" src="" alt="NID Preview" style="display:none; max-width:100%; max-height:180px; border-radius:10px; margin:10px auto; border:2px solid #e2e8f0;">
+            <div style="text-align:center; margin-top:6px;">
+                <button type="button" id="nidChangeBtn" onclick="document.getElementById('nidFile').click()" style="display:none; font-size:12px; background:none; border:none; color:#f97316; cursor:pointer; font-weight:600; text-decoration:underline;">Change photo</button>
+            </div>
+        </div>
+        <span class="field-error" id="nidError">&#9888; Please upload a valid NID photo (JPG/PNG/WEBP, max 5MB).</span>
+    </div>
+
+    <div class="terms-row">
+        <input type="checkbox" id="agree" name="agree">
+        <label for="agree">
+            I agree to the <a href="#">Terms of Service</a> and
+            <a href="#">Privacy Policy</a>.
+        </label>
+    </div>
+    <span class="field-error" id="termsError">&#9888; You must agree to the Terms of Service.</span>
+
+    <button type="submit" class="primary-btn">Sign Up</button>
+</form>
+
+        </div>
+    </section>
+
+<script>
+// ── Helpers ────────────────────────────────────────────────────
+var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+var nameRegex  = /^[a-zA-Z\u00C0-\u024F\s'.\-]+$/; // letters, spaces, apostrophes, hyphens
+var phoneRegex = /^[0-9+\-\s()]{6,20}$/;
+
+function showError(el, inputEl) {
+    el.style.display = 'block';
+    if (inputEl) inputEl.style.borderColor = '#e53e3e';
+}
+function hideError(el, inputEl) {
+    el.style.display = 'none';
+    if (inputEl) inputEl.style.borderColor = '';
+}
+
+// ── Element refs ───────────────────────────────────────────────
+var nameIn     = document.getElementById('signupName');
+var emailIn    = document.getElementById('signupEmail');
+var phoneIn    = document.getElementById('signupPhone');
+var locationIn = document.getElementById('signupLocation');
+var passIn     = document.getElementById('signupPassword');
+var confirmIn  = document.getElementById('signupConfirm');
+var agreeIn    = document.getElementById('agree');
+var nidFile    = document.getElementById('nidFile');
+var nidPreview = document.getElementById('nidPreview');
+var nidHolder  = document.getElementById('nidPlaceholder');
+var nidBtn     = document.getElementById('nidChangeBtn');
+var nidBox     = document.getElementById('nidUploadBox');
+
+// ── Live validators ────────────────────────────────────────────
+nameIn.addEventListener('input', function () {
+    // Block numeric key entry visually by stripping digits as typed
+    this.value = this.value.replace(/[0-9]/g, '');
+    var e = document.getElementById('nameError');
+    if (!this.value.trim() || !nameRegex.test(this.value.trim())) {
+        showError(e, this);
+    } else { hideError(e, this); }
+});
+
+emailIn.addEventListener('input', function () {
+    var e = document.getElementById('emailError');
+    if (this.value && !emailRegex.test(this.value)) { showError(e, this); }
+    else { hideError(e, this); }
+});
+
+phoneIn.addEventListener('input', function () {
+    // Strip any letters as typed
+    this.value = this.value.replace(/[a-zA-Z]/g, '');
+    var e = document.getElementById('phoneError');
+    if (!this.value.trim() || !phoneRegex.test(this.value.trim())) { showError(e, this); }
+    else { hideError(e, this); }
+});
+
+locationIn.addEventListener('input', function () {
+    var e = document.getElementById('locationError');
+    if (!this.value.trim()) { showError(e, this); }
+    else { hideError(e, this); }
+});
+
+passIn.addEventListener('input', function () {
+    var e = document.getElementById('passwordError');
+    if (this.value.length < 6) { showError(e, this); }
+    else { hideError(e, this); }
+    // Re-check confirm too
+    if (confirmIn.value) {
+        var ce = document.getElementById('confirmError');
+        if (confirmIn.value !== this.value) { showError(ce, confirmIn); }
+        else { hideError(ce, confirmIn); }
+    }
+});
+
+confirmIn.addEventListener('input', function () {
+    var e = document.getElementById('confirmError');
+    if (this.value !== passIn.value) { showError(e, this); }
+    else { hideError(e, this); }
+});
+
+// ── NID upload preview ─────────────────────────────────────────
+var allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+nidFile.addEventListener('change', function () {
+    var file  = this.files[0];
+    var nidE  = document.getElementById('nidError');
+    hideError(nidE, null);
+    if (!file) return;
+    if (!allowedTypes.includes(file.type) || file.size > 5 * 1024 * 1024) {
+        showError(nidE, null);
+        nidBox.classList.remove('has-file');
+        nidPreview.style.display = 'none';
+        nidHolder.style.display  = 'block';
+        nidBtn.style.display     = 'none';
+        this.value = '';
+        return;
+    }
+    var reader = new FileReader();
+    reader.onload = function (ev) {
+        nidPreview.src           = ev.target.result;
+        nidPreview.style.display = 'block';
+        nidHolder.style.display  = 'none';
+        nidBtn.style.display     = 'inline-block';
+        nidBox.classList.add('has-file');
+    };
+    reader.readAsDataURL(file);
+});
+
+// ── Submit: validate every field ───────────────────────────────
+document.getElementById('signupForm').addEventListener('submit', function (e) {
+    var valid = true;
+    var firstError = null;
+
+    function fail(errId, inputEl) {
+        var errEl = document.getElementById(errId);
+        showError(errEl, inputEl);
+        if (!firstError) firstError = inputEl || errEl;
+        valid = false;
+    }
+    function pass(errId, inputEl) {
+        hideError(document.getElementById(errId), inputEl);
+    }
+
+    // Name
+    var nv = nameIn.value.trim();
+    if (!nv || !nameRegex.test(nv)) { fail('nameError', nameIn); }
+    else { pass('nameError', nameIn); }
+
+    // Email
+    var ev = emailIn.value.trim();
+    if (!ev || !emailRegex.test(ev)) { fail('emailError', emailIn); }
+    else { pass('emailError', emailIn); }
+
+    // Phone
+    var pv = phoneIn.value.trim();
+    if (!pv || !phoneRegex.test(pv)) { fail('phoneError', phoneIn); }
+    else { pass('phoneError', phoneIn); }
+
+    // Location
+    if (!locationIn.value.trim()) { fail('locationError', locationIn); }
+    else { pass('locationError', locationIn); }
+
+    // Password
+    if (passIn.value.length < 6) { fail('passwordError', passIn); }
+    else { pass('passwordError', passIn); }
+
+    // Confirm
+    if (confirmIn.value !== passIn.value || confirmIn.value === '') { fail('confirmError', confirmIn); }
+    else { pass('confirmError', confirmIn); }
+
+    // NID
+    if (!nidFile.files || !nidFile.files[0]) {
+        fail('nidError', null);
+        document.getElementById('nidError').textContent = '⚠ NID photo is required. Please upload a photo of your National ID.';
+    } else { pass('nidError', null); }
+
+    // Terms
+    if (!agreeIn.checked) { fail('termsError', null); }
+    else { pass('termsError', null); }
+
+    if (!valid) {
+        e.preventDefault();
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+    }
+
+    // Set correct action based on role
+    var role = document.querySelector('input[name="signupRole"]:checked');
+    this.action = role && role.value === 'provider' ? 'provider_signup.php' : 'customer_signup.php';
+});
+</script>
+
+</body>
+<script src="theme.js"></script>
+</html>

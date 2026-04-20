@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider Dashboard</title>
+    <link rel="stylesheet" href="provider.css">
+</head>
+
+<body>
+    <div class="page">
+        <section class="services-section">
+            <div class="section-header">
+                <h2>Your Services</h2>
+                <button class="add-btn" id="open-modal">Add New</button>
+            </div>
+            <table class="data-table services-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AC Repair</td>
+                        <td>Repair AC</td>
+                        <td>500</td>
+                        <td class="action-links">
+                            <a class="update-link" href="update.php?id=<?php echo $row['id']; ?>">Update</a> |
+                            <a class="delete-link" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TV Repair</td>
+                        <td>Repair any TV</td>
+                        <td>500</td>
+                        <td class="action-links">
+                            <a class="update-link" href="update.php?id=<?php echo $row['id']; ?>">Update</a> |
+                            <a class="delete-link" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fridge Repair</td>
+                        <td>Repair Smart fridge</td>
+                        <td>500</td>
+                        <td class="action-links">
+                            <a class="update-link" href="update.php?id=<?php echo $row['id']; ?>">Update</a> |
+                            <a class="delete-link" href="delete.php?id=<?php echo $row['id']; ?>">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="stats-banner">
+            <div class="rating">★★★★★</div>
+            <div class="stat-item">
+                <div class="stat-number">210+</div>
+                <div class="stat-label">Project Done</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">210+</div>
+                <div class="stat-label">Happy Clients</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years of Skill</div>
+            </div>
+        </section>
+
+        <section class="requests-section">
+            <h3>Requests</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Date</th>
+                        <th>C Name</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AC Repair</td>
+                        <td>11-12-25</td>
+                        <td>Tanvir</td>
+                        <td>01755663322</td>
+                        <td>Tongi, Gazipur</td>
+                        <td>500</td>
+                        <td class="action-icons">
+                            <a href="update.php?id=<?php echo $row['id']; ?>">✅</a> |
+                            <a href="delete.php?id=<?php echo $row['id']; ?>">❌</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TV Repair</td>
+                        <td>11-12-25</td>
+                        <td>Rakib</td>
+                        <td>01966332255</td>
+                        <td>House 10, Mirpur road</td>
+                        <td>500</td>
+                        <td class="action-icons">
+                            <a href="update.php?id=<?php echo $row['id']; ?>">✅</a> |
+                            <a href="delete.php?id=<?php echo $row['id']; ?>">❌</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Fridge Repair</td>
+                        <td>11-12-25</td>
+                        <td>Sunriza</td>
+                        <td>01599884455</td>
+                        <td>RASG, DSA, Savar</td>
+                        <td>500</td>
+                        <td class="action-icons">
+                            <a href="update.php?id=<?php echo $row['id']; ?>">✅</a> |
+                            <a href="delete.php?id=<?php echo $row['id']; ?>">❌</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="status-section">
+            <h3>All Status</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Date</th>
+                        <th>C Name</th>
+                        <th>Phone</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AC Repair</td>
+                        <td>11-12-25</td>
+                        <td>Tanvir</td>
+                        <td>01755663322</td>
+                        <td>Tongi, Gazipur</td>
+                        <td>500</td>
+                        <td class="status-icons"><span class="accept">✅</span></td>
+                        <td class="status-icons"><span class="accept">✅</span></td>
+                    </tr>
+                    <tr>
+                        <td>TV Repair</td>
+                        <td>11-12-25</td>
+                        <td>Rakib</td>
+                        <td>01966332255</td>
+                        <td>House 10, Mirpur road</td>
+                        <td>500</td>
+                        <td class="status-icons"><span class="accept">✅</span></td>
+                        <td class="status-icons"><span class="reject">❌</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fridge Repair</td>
+                        <td>11-12-25</td>
+                        <td>Sunriza</td>
+                        <td>01599884455</td>
+                        <td>RASG, DSA, Savar</td>
+                        <td>500</td>
+                        <td class="status-icons"><span class="reject">❌</span></td>
+                        <td class="status-icons"><span class="reject">❌</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div class="modal-backdrop" id="modal-backdrop">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Service</h3>
+                <button class="close-btn" id="close-modal" aria-label="Close form">✕</button>
+            </div>
+            <form class="modal-form" action="product_insert.php" method="post">
+                <div class="form-row full-row">
+                    <label for="service-photo">Photo upload</label>
+                    <input type="file" id="service-photo" name="service-photo" accept="image/*">
+                </div>
+                <div class="form-row">
+                    <label for="product_name">Product Name</label>
+                    <input type="text" id="product_name" name="product_name" placeholder="Enter product name">
+                </div>
+                <div class="form-row">
+                    <label for="product_code">Product Code</label>
+                    <input type="text" id="product_code" name="product_code" placeholder="Enter product code">
+                </div>
+                <div class="form-row">
+                    <label for="category">Category</label>
+                    <input type="text" id="category" name="category" placeholder="Enter category">
+                </div>
+                <div class="form-row full-row">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="3"
+                        placeholder="Add a short description"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="duration">Duration</label>
+                    <input type="text" id="duration" name="duration" placeholder="e.g., 2 hours">
+                </div>
+                <div class="form-row">
+                   
+                </div>
+                <div class="form-row">
+                    <label for="price1">Price</label>
+                    <input type="text" id="price1" name="price1" placeholder="Enter price">
+                </div>
+                <div class="form-row">
+                    <label for="offer_off">Offer Off (%)</label>
+                    <input type="number" id="offer_off" name="offer_off" placeholder="e.g., 10">
+                </div>
+                <div class="form-actions full-row">
+                    <button type="submit" class="submit-btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    
+    <div class="modal-backdrop" id="update-backdrop">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="update-modal-title">
+            <div class="modal-header">
+                <h3 id="update-modal-title">Update Service</h3>
+                <button class="close-btn" id="close-update-modal" aria-label="Close update form">✕</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-row full-row">
+                    <label for="update-photo">Photo upload</label>
+                    <input type="file" id="update-photo" name="update-photo" accept="image/*">
+                </div>
+                <div class="form-row">
+                    <label for="update-product-name">Product Name</label>
+                    <input type="text" id="update-product-name" name="update-product-name" placeholder="Enter product name">
+                </div>
+                <div class="form-row">
+                    <label for="update-product-code">Product Code</label>
+                    <input type="text" id="update-product-code" name="update-product-code" placeholder="Enter product code">
+                </div>
+                <div class="form-row">
+                    <label for="update-product-category">Category</label>
+                    <input type="text" id="update-product-category" name="update-product-category" placeholder="Enter category">
+                </div>
+                <div class="form-row full-row">
+                    <label for="update-product-description">Description</label>
+                    <textarea id="update-product-description" name="update-product-description" rows="3" placeholder="Add a short description"></textarea>
+                </div>
+                <div class="form-row">
+                    <label for="update-service-duration">Duration</label>
+                    <input type="text" id="update-service-duration" name="update-service-duration" placeholder="e.g., 2 hours">
+                </div>
+                <div class="form-row">
+                    <label>Offer Status</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="update-offer-status" value="yes"> Yes</label>
+                        <label><input type="radio" name="update-offer-status" value="no" checked> No</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <label for="update-service-price">Price</label>
+                    <input type="number" id="update-service-price" name="update-service-price" placeholder="Enter price">
+                </div>
+                <div class="form-row">
+                    <label for="update-offer-off">Offer Off (%)</label>
+                    <input type="number" id="update-offer-off" name="update-offer-off" placeholder="e.g., 10">
+                </div>
+                <div class="form-actions full-row">
+                    <button type="submit" class="submit-btn">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const addBtn = document.getElementById('open-modal');
+            const addCloseBtn = document.getElementById('close-modal');
+            const addBackdrop = document.getElementById('modal-backdrop');
+
+            const updateBackdrop = document.getElementById('update-backdrop');
+            const updateCloseBtn = document.getElementById('close-update-modal');
+            const updateLinks = document.querySelectorAll('.update-link');
+
+            const openAddModal = () => addBackdrop.classList.add('show');
+            const closeAddModal = () => addBackdrop.classList.remove('show');
+
+            const openUpdateModal = (event) => {
+                if (event) event.preventDefault();
+                updateBackdrop.classList.add('show');
+            };
+            const closeUpdateModal = () => updateBackdrop.classList.remove('show');
+
+            if (addBtn && addCloseBtn && addBackdrop) {
+                addBtn.addEventListener('click', openAddModal);
+                addCloseBtn.addEventListener('click', closeAddModal);
+                addBackdrop.addEventListener('click', (e) => {
+                    if (e.target === addBackdrop) closeAddModal();
+                });
+            }
+
+            if (updateBackdrop && updateCloseBtn) {
+                updateCloseBtn.addEventListener('click', closeUpdateModal);
+                updateBackdrop.addEventListener('click', (e) => {
+                    if (e.target === updateBackdrop) closeUpdateModal();
+                });
+            }
+
+            updateLinks.forEach((link) => {
+                link.addEventListener('click', openUpdateModal);
+            });
+        })();
+    </script>
+</body>
+
+</html>

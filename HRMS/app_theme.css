@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --app-font: 'Plus Jakarta Sans', sans-serif;
+    --app-ink: #12223d;
+    --app-blue: #244b8a;
+    --app-mint: #0f9d8a;
+    --app-coral: #f97316;
+    --app-glass: rgba(255, 255, 255, 0.64);
+    --app-glass-border: rgba(255, 255, 255, 0.82);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--app-font);
+    color: var(--app-ink);
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 10% 10%, #e7f1ff 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, #fff5e9 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #e7fff8 0%, transparent 30%),
+        linear-gradient(135deg, #d9e8ff 0%, #edf3ff 40%, #fef7ef 100%);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 28px;
+    background: rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(24px) saturate(180%);
+    border-bottom: 1px solid rgba(36, 75, 138, 0.1);
+}
+
+.page-content {
+    max-width: 1240px;
+    margin: 28px auto 60px;
+    padding: 0 18px;
+}
+
+.services-section,
+.profile-card {
+    background: var(--app-glass);
+    border: 1px solid var(--app-glass-border);
+    border-radius: 28px;
+    box-shadow: 0 16px 40px rgba(18, 34, 61, 0.08);
+    backdrop-filter: blur(24px) saturate(160%);
+}
+
+.add-btn,
+.logout-btn,
+.checkout-btn,
+.cta-button {
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.data-table thead {
+    background: rgba(36, 75, 138, 0.08);
+}
+
+.data-table th {
+    text-align: left;
+    color: var(--app-blue);
+    font-weight: 700;
+}
+
+.data-table td {
+    border-bottom: 1px solid rgba(36, 75, 138, 0.08);
+}
+
+.data-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.74);
+}

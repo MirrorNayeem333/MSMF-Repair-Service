@@ -1,0 +1,70 @@
+@import url('app_theme.css');
+
+/* overall page */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f5f7fb;
+    color: #222;
+}
+
+/* center the form card */
+form {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 24px 22px 26px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* each label + input block spacing */
+form label {
+    display: block;
+    font-size: 14px;
+    color: #142356;
+    margin-bottom: 4px;
+}
+
+/* all text/number inputs & description input */
+form input[type="text"],
+form input[type="number"],
+form input[id="description"] {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 12px;
+    border: 1px solid #d8dcee;
+    font-size: 13px;
+    outline: none;
+    margin-bottom: 12px;
+    background: #fdfdff;
+}
+
+/* focus effect */
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form input[id="description"]:focus {
+    border-color: #7a3cff;
+    box-shadow: 0 0 0 2px rgba(122,60,255,0.1);
+}
+
+/* submit button */
+form input[type="submit"] {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 9px 22px;
+    border-radius: 999px;
+    border: none;
+    background: #7a3cff;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* hover on button */
+form input[type="submit"]:hover {
+    opacity: 0.9;
+}
